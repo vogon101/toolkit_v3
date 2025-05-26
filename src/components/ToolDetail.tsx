@@ -41,18 +41,17 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
           </MarkdownText>
         </SubSection>
         <SubSection>
+          <SubSectionTitle>How It Works</SubSectionTitle>
+          <MarkdownText>
+            <ReactMarkdown>{tool.how_it_works}</ReactMarkdown>
+          </MarkdownText>
+        </SubSection>
+        <SubSection>
           <SubSectionTitle>When To Use This Tool</SubSectionTitle>
           <MarkdownText>
             <ReactMarkdown>{tool.purpose_and_application.optimal_conditions}</ReactMarkdown>
           </MarkdownText>
         </SubSection>
-      </Section>
-
-      <Section>
-        <SectionTitle>How It Works</SectionTitle>
-        <MarkdownText>
-          <ReactMarkdown>{tool.how_it_works}</ReactMarkdown>
-        </MarkdownText>
       </Section>
 
       <Section>
