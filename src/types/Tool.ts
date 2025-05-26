@@ -19,7 +19,7 @@ export interface Tool {
     additionality: string;
     timeline: string;
   };
-  recommendations: string;
+  recommendations: string[];
   implementation: {
     lead_body: string;
     ease: string;

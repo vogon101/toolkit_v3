@@ -11,6 +11,10 @@ import {
   TargetabilityGrid,
   TargetabilityBox,
   MarkdownText,
+  FurtherReadingList,
+  FurtherReadingListItem,
+  FurtherReadingLink,
+  FurtherReadingText,
 } from '../styles/StyledComponents';
 
 interface ToolDetailProps {
@@ -31,13 +35,13 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
       <Section>
         <SectionTitle>Purpose & Application</SectionTitle>
         <SubSection>
-          <SubSectionTitle>Why</SubSectionTitle>
+          <SubSectionTitle>Why Use This Tool</SubSectionTitle>
           <MarkdownText>
             <ReactMarkdown>{tool.purpose_and_application.why}</ReactMarkdown>
           </MarkdownText>
         </SubSection>
         <SubSection>
-          <SubSectionTitle>Optimal Conditions</SubSectionTitle>
+          <SubSectionTitle>When To Use This Tool</SubSectionTitle>
           <MarkdownText>
             <ReactMarkdown>{tool.purpose_and_application.optimal_conditions}</ReactMarkdown>
           </MarkdownText>
@@ -55,25 +59,25 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
         <SectionTitle>Targetability</SectionTitle>
         <TargetabilityGrid>
           <TargetabilityBox>
-            <strong>Sectoral</strong>
+            <SubSectionTitle>Sectoral</SubSectionTitle>
             <MarkdownText>
               <ReactMarkdown>{tool.targetability.sectoral}</ReactMarkdown>
             </MarkdownText>
           </TargetabilityBox>
           <TargetabilityBox>
-            <strong>Technological</strong>
+            <SubSectionTitle>Technological</SubSectionTitle>
             <MarkdownText>
               <ReactMarkdown>{tool.targetability.technological}</ReactMarkdown>
             </MarkdownText>
           </TargetabilityBox>
           <TargetabilityBox>
-            <strong>Regional</strong>
+            <SubSectionTitle>Regional</SubSectionTitle>
             <MarkdownText>
               <ReactMarkdown>{tool.targetability.regional}</ReactMarkdown>
             </MarkdownText>
           </TargetabilityBox>
           <TargetabilityBox>
-            <strong>By Firm Type</strong>
+            <SubSectionTitle>By Firm Type</SubSectionTitle>
             <MarkdownText>
               <ReactMarkdown>{tool.targetability.by_firm_type}</ReactMarkdown>
             </MarkdownText>
@@ -108,7 +112,7 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
           </MarkdownText>
         </SubSection>
         <SubSection>
-          <SubSectionTitle>Timeline</SubSectionTitle>
+          <SubSectionTitle>Time To Impact</SubSectionTitle>
           <MarkdownText>
             <ReactMarkdown>{tool.effectiveness.timeline}</ReactMarkdown>
           </MarkdownText>
@@ -124,7 +128,7 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
           </MarkdownText>
         </SubSection>
         <SubSection>
-          <SubSectionTitle>Ease</SubSectionTitle>
+          <SubSectionTitle>Complexity</SubSectionTitle>
           <MarkdownText>
             <ReactMarkdown>{tool.implementation.ease}</ReactMarkdown>
           </MarkdownText>
@@ -140,7 +144,17 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
       <Section>
         <SectionTitle>Recommendations</SectionTitle>
         <MarkdownText>
-          <ReactMarkdown>{tool.recommendations}</ReactMarkdown>
+          {Array.isArray(tool.recommendations) && tool.recommendations.length > 0 ? (
+            <ul>
+              {tool.recommendations.map((rec, index) => (
+                <li key={index}>
+                  <ReactMarkdown>{rec}</ReactMarkdown>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p>No recommendations available.</p>
+          )}
         </MarkdownText>
       </Section>
 
@@ -191,19 +205,21 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList }) => {
       {tool.further_reading.length > 0 && (
         <Section>
           <SectionTitle>Further Reading</SectionTitle>
-          <ul>
+          <FurtherReadingList>
             {tool.further_reading.map((item, index) => (
-              <li key={index}>
+              <FurtherReadingListItem key={index}>
                 {item.url ? (
-                  <a href={item.url} target="_blank" rel="noopener noreferrer">
+                  <FurtherReadingLink href={item.url} target="_blank" rel="noopener noreferrer">
                     {item.title} ({item.source})
-                  </a>
+                  </FurtherReadingLink>
                 ) : (
-                  <span>{item.title} ({item.source})</span>
+                  <FurtherReadingText>
+                    {item.title} ({item.source})
+                  </FurtherReadingText>
                 )}
-              </li>
+              </FurtherReadingListItem>
             ))}
-          </ul>
+          </FurtherReadingList>
         </Section>
       )}
     </div>

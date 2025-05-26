@@ -8,9 +8,9 @@ export const AppContainer = styled.div`
 
 export const Sidebar = styled.nav`
   width: 250px;
-  background-color: #f5f5f5;
+  background-color: #F5FAF8;
   padding: 20px;
-  border-right: 1px solid #e0e0e0;
+  border-right: 1px solid #D9E8E2;
   overflow-y: auto;
 `;
 
@@ -40,18 +40,18 @@ export const ToolListItem = styled.li<{ active: boolean }>`
   cursor: pointer;
   border-radius: 6px;
   transition: all 0.2s ease;
-  font-weight: ${props => props.active ? '500' : '400'};
-  background-color: ${props => props.active ? '#e8f0fe' : 'transparent'};
-  color: ${props => props.active ? '#1a73e8' : '#333'};
+  font-weight: ${props => props.active ? '600' : '400'};
+  background-color: ${props => props.active ? '#E6F0ED' : 'transparent'};
+  color: ${props => props.active ? '#0B4938' : '#333'};
   
   &:hover {
-    background-color: ${props => props.active ? '#e8f0fe' : '#f5f5f5'};
+    background-color: ${props => props.active ? '#D9E8E2' : '#F0F5F3'};
   }
 `;
 
 export const Section = styled.section`
   margin-bottom: 32px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #D9E8E2;
   border-radius: 12px;
   padding: 28px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -64,29 +64,29 @@ export const Section = styled.section`
 `;
 
 export const SectionTitle = styled.h2`
-  color: #1a1a1a;
+  color: #0B4938;
   margin-bottom: 24px;
   font-size: 1.6rem;
   font-weight: 600;
   padding-bottom: 16px;
-  border-bottom: 2px solid #f0f0f0;
+  border-bottom: 2px solid #E6F0ED;
 `;
 
 export const SubSection = styled.div`
   margin-bottom: 24px;
   padding: 20px;
-  border: 1px solid #eef2f6;
+  border: 1px solid #E6F0ED;
   border-radius: 8px;
-  background-color: #fafbfc;
+  background-color: #F5FAF8;
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: #f8f9fa;
+    background-color: #E6F0ED;
   }
 `;
 
 export const SubSectionTitle = styled.h3`
-  color: #2c3e50;
+  color: #0B4938;
   margin-bottom: 16px;
   font-size: 1.25rem;
   font-weight: 500;
@@ -100,8 +100,8 @@ export const TagContainer = styled.div`
 `;
 
 export const Tag = styled.span`
-  background-color: #f1f5fd;
-  color: #1a73e8;
+  background-color: #E6F0ED;
+  color: #0B4938;
   padding: 6px 12px;
   border-radius: 16px;
   font-size: 0.9rem;
@@ -109,7 +109,7 @@ export const Tag = styled.span`
   transition: all 0.2s ease;
 
   &:hover {
-    background-color: #e8f0fe;
+    background-color: #D9E8E2;
   }
 `;
 
@@ -122,19 +122,19 @@ export const TargetabilityGrid = styled.div`
 
 export const TargetabilityBox = styled.div`
   padding: 20px;
-  border: 1px solid #eef2f6;
+  border: 1px solid #E6F0ED;
   border-radius: 8px;
-  background-color: #ffffff;
+  background-color: #F5FAF8;
   transition: all 0.2s ease;
 
   &:hover {
-    border-color: #e0e0e0;
+    border-color: #D9E8E2;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   }
 
   strong {
     display: inline;
-    color: #2c3e50;
+    color: #0B4938;
     margin-right: 6px;
     font-weight: 600;
   }
@@ -160,7 +160,7 @@ export const MarkdownText = styled.div`
 
   strong {
     font-weight: 600;
-    color: #2c3e50;
+    color: #0B4938;
   }
 
   em {
@@ -169,11 +169,40 @@ export const MarkdownText = styled.div`
   }
 
   p > code {
-    background-color: #f8f9fa;
+    background-color: #F5FAF8;
     padding: 3px 6px;
     border-radius: 4px;
     font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
     font-size: 0.9em;
-    color: #2c3e50;
+    color: #0B4938;
   }
+`;
+
+export const FurtherReadingList = styled.ul`
+  list-style-type: disc;
+  padding-left: 25px; /* Add some padding for the bullets */
+  margin-top: 16px;
+`;
+
+export const FurtherReadingListItem = styled.li`
+  margin-bottom: 12px;
+  line-height: 1.6;
+`;
+
+export const FurtherReadingLink = styled.a`
+  color: #093D77; /* Dark Blue */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: #80B7F4; /* Light Blue */
+    text-decoration: underline;
+  }
+`;
+
+export const FurtherReadingText = styled.span`
+  color: #283131; /* Charcoal */
+  font-weight: 500;
 `; 

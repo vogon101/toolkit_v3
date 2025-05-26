@@ -2,15 +2,15 @@ tools:
   - name: "R&D Tax Reliefs"
     tag: "r_d_tax_reliefs"
 
-    # PURPOSE & APPLICATION (combines aims + when_to_use)
+    # PURPOSE & APPLICATION
     purpose_and_application: 
       why: "Support companies in investing in innovative projects across science and technology sectors. By reducing the effective cost of R&D through tax relief, the policy seeks to unlock additional private sector investment and drive economic growth, particularly encouraging businesses that might otherwise underinvest in research and development."
       optimal_conditions: "Works best in environments with an established business base, mature tax infrastructure, and stable fiscal outlook. Particularly effective when broad-based R&D stimulus is needed rather than targeted support."
 
-    # HOW IT WORKS (unchanged)
+    # HOW IT WORKS
     how_it_works: "Companies submit documentation detailing their qualifying R&D expenditure and can claim a taxable credit at 20% under the Research and Development Expenditure Credit (RDEC) scheme. Loss-making R&D-intensive SMEs can access Enhanced R&D Intensive Support (ERIS) with an enhanced deduction of 86% and payable tax credit up to 14.5%. The system operates through existing tax infrastructure, with companies claiming relief through their regular tax returns."
 
-    # TARGETABILITY (unchanged - this is your secret sauce)
+    # TARGETABILITY
     targetability:
       sectoral: "**Low** – broad eligibility across all sectors"
       technological: "**Low** – cannot target specific technologies or innovation priorities"
@@ -18,23 +18,28 @@ tools:
       by_firm_type: "**Moderate** – separate schemes for SMEs vs larger companies (ERIS vs RDEC)"
       overall_assessment: "**Broad-brush tool** – excellent for general R&D stimulus, poor for strategic targeting."
 
-    # EFFECTIVENESS (combines strengths_weaknesses + evidence)
+    # EFFECTIVENESS
     effectiveness:
-      what_works: "Delivers impressive leverage with £7.5B in relief generating £46.7B in R&D spending. Low administrative complexity since it operates through existing tax infrastructure, provides fast cash delivery within months. Evidence shows additionality: RDEC demonstrates £2.40-£2.70 of additional R&D per £1 of public money, while the SME scheme shows £0.60-£1.28 per £1."
+      what_works: "Delivers impressive leverage with £7.5B in relief generating £46.7B in R&D spending. Low administrative complexity since it operates through existing tax infrastructure, provides fast cash delivery within months. Evidence shows additionality: RDEC demonstrates £2.40-£2.70 of additional R&D per £1 of public money, while the SME scheme shows £0.60-£1.28 per £1. Currently heavily utilised with 65,690 claims in 2022-23, showing strong business uptake."
       what_doesnt: "Limited strategic targeting capability - unsuitable when specific technologies or sectors need priority support. Moderate fraud risk (£1B lost in 2020-21). Fast cash delivery but slow economic impact - broader benefits like productivity gains emerge over years."
       additionality: "**Medium-High evidence** - Multiple studies show genuine additionality, though exact amounts are contested due to methodological debates."
       timeline: "Immediate cash flow benefits, long-term economic impact over 3-5 years."
 
-    # RECOMMENDATIONS (expanded to include UK context)
-    recommendations: "Use as part of a broad-based innovation strategy, particularly in service-driven economies like the UK. Not suitable when strategic targeting of specific technologies, sectors, or regions is the priority. Consider combining with direct grants to address strategic priorities that tax credits cannot target. Build robust anti-fraud measures from the outset - this is critical for long-term success. The UK's heavy reliance on tax credits versus direct measures may not adequately address manufacturing competitiveness or strategic technology priorities like AI or clean energy. Currently heavily utilised with 65,690 claims in 2022-23, showing strong business uptake."
+    # RECOMMENDATIONS
+    recommendations:
+      - "Use as part of a broad-based innovation strategy, particularly in service-driven economies like the UK."
+      - "Not suitable when strategic targeting of specific technologies, sectors, or regions is the priority."
+      - "Consider combining with direct grants to address strategic priorities that tax credits cannot target."
+      - "Build robust anti-fraud measures from the outset - this is critical for long-term success."
+      - "The UK's heavy reliance on tax credits versus direct measures may not adequately address manufacturing competitiveness or strategic technology priorities like AI or clean energy."
 
-    # IMPLEMENTATION (simplified from delivery)
+    # IMPLEMENTATION
     implementation:
       lead_body: "HMRC"
       ease: "**Low complexity** – operates through existing tax infrastructure, with administrative costs pushed to beneficiaries"
       flexibility: "**Medium** – tax changes can be introduced at fiscal events, but major changes can prove controversial without adequate consultation"
 
-    # REFERENCE (unchanged)
+    # REFERENCE
     further_reading:
       - title: "R&D Tax Credit Statistics, September 2024"
         source: "HMRC"
@@ -43,10 +48,10 @@ tools:
         source: "Bloom N. et al."
         url: "https://www.aeaweb.org/articles?id=10.1257/jep.33.3.163"
 
-    # POLICY OBJECTIVES (for filtering/cross-reference)
+    # POLICY OBJECTIVES
     objectives: ["increase_business_rd_investment", "support_sme_innovation"]
 
-    # TAGS (unchanged)
+    # TAGS
     tags:
       innovation_stage: ["early_stage", "applied_research", "development", "demonstration", "deployment"]
       sectors: ["cross_sector", "manufacturing", "ict", "life_sciences", "aerospace", "automotive", "energy", "professional_services"]
@@ -75,13 +80,16 @@ tools:
 
     # EFFECTIVENESS
     effectiveness:
-      what_works: "Government only pays for successful outcomes, eliminating the risk of funding failed projects. Leverage can reach 10:1 in large prizes as participants invest their own resources. Can attract unconventional innovators and generate significant publicity for important challenges."
+      what_works: "Government only pays for successful outcomes, eliminating the risk of funding failed projects. Leverage can reach 10:1 in large prizes as participants invest their own resources. Can attract unconventional innovators and generate significant publicity for important challenges. UK examples include the Manchester Prize (£1 million for AI applications in clean energy) and Longitude Prizes - these represent modest experiments with particular promise for spotlighting early-stage challenges in net zero transition or national security areas."
       what_doesnt: "Prize design and evaluation processes are complex and resource-intensive. Risk of duplication as multiple teams work on similar approaches without coordination. Evidence base for effectiveness remains thin, making it difficult to predict outcomes or optimise design."
       additionality: "**Low-Medium evidence** - Additionality likely to be high when a precise target product profile is established, but approach remains untested when rewards simply go to 'best in class' without clear performance thresholds."
       timeline: "Dependent on prize duration and complexity, typically requires years for meaningful technical breakthroughs. Impact may be accelerated if prizes successfully catalyse broader investment or research interest."
 
     # RECOMMENDATIONS
-    recommendations: "Reserve innovation prizes for problems at TRL approximately 3 where the pool of potential innovators is unknown or needs to be expanded beyond traditional players. Keep R&D costs relatively low for entrants to maximize participation, and guard against overly generic criteria that fail to drive specific innovation. Consider prizes as part of broader innovation ecosystems rather than standalone interventions. UK examples include the Manchester Prize (£1 million for AI applications in clean energy) and Longitude Prizes - these represent modest experiments with particular promise for spotlighting early-stage challenges in net zero transition or national security areas."
+    recommendations:
+      - "Reserve innovation prizes for problems at TRL approximately 3 where the pool of potential innovators is unknown or needs to be expanded beyond traditional players."
+      - "Keep R&D costs relatively low for entrants to maximize participation, and guard against overly generic criteria that fail to drive specific innovation."
+      - "Consider prizes as part of broader innovation ecosystems rather than standalone interventions."
 
     # IMPLEMENTATION
     implementation:
@@ -124,13 +132,17 @@ tools:
 
     # EFFECTIVENESS
     effectiveness:
-      what_works: "Can crowd in major private R&D investment by providing demand certainty that unlocks private capital. Government only pays upon successful delivery of specified products, minimizing risk of funding failure. Fraud risk is typically low due to clear delivery requirements and product verification processes."
+      what_works: "Can crowd in major private R&D investment by providing demand certainty that unlocks private capital. Government only pays upon successful delivery of specified products, minimizing risk of funding failure. Fraud risk is typically low due to clear delivery requirements and product verification processes. UK has participated in international pneumococcal and COVAX vaccine commitments, with a pilot program for low-carbon concrete underway."
       what_doesnt: "Potentially very expensive if successful, requiring substantial long-term budget commitments. Design complexity is high, requiring detailed technical specifications and market analysis. Vulnerable to industry capture if incumbent players unduly influence specification setting."
       additionality: "**Low-Medium evidence** - Additionality effects remain unclear from existing studies. Economic theory suggests high additionality where products are distant from current market viability, but empirical evidence is limited."
       timeline: "Typically extends beyond a single parliamentary term, depending on starting TRL and required scale-up. Long-term nature creates challenges for political sustainability."
 
     # RECOMMENDATIONS
-    recommendations: "Deploy advance market commitments specifically when demand risk is the primary constraint on private investment, rather than technical or regulatory barriers. Avoid using this tool for products that are already near-market viability, as this risks displacing rather than additional private investment. Maintain credible long-term funding commitments even across changes of government, as credibility is essential for effectiveness. UK has participated in international pneumococcal and COVAX vaccine commitments, with a pilot program for low-carbon concrete underway. Shows particular promise for pandemic preparedness and hard-to-abate net zero technologies where uncertain future carbon pricing creates investment barriers."
+    recommendations:
+      - "Deploy advance market commitments specifically when demand risk is the primary constraint on private investment, rather than technical or regulatory barriers."
+      - "Avoid using this tool for products that are already near-market viability, as this risks displacing rather than additional private investment."
+      - "Maintain credible long-term funding commitments even across changes of government, as credibility is essential for effectiveness."
+      - "Shows particular promise for pandemic preparedness and hard-to-abate net zero technologies where uncertain future carbon pricing creates investment barriers."
 
     # IMPLEMENTATION
     implementation:
@@ -152,8 +164,8 @@ tools:
       targeting: ["technology_specific"]
       timeline: ["long_term_innovation"]
 
-  - name: "Innovate UK Grants for Business"
-    tag: "innovate_uk_grants_for_business"
+  - name: "Innovation Grants for Business"
+    tag: "innovation_grants_for_business"
 
     # PURPOSE & APPLICATION
     purpose_and_application: 
@@ -173,13 +185,17 @@ tools:
 
     # EFFECTIVENESS
     effectiveness:
-      what_works: "Evidence shows high additionality and significant GVA impact, with support backed by three rigorous counterfactual studies. Achieves leverage of approximately 0.67:1, meaning every pound of public funding generates additional private investment. Competitive process helps identify the most promising projects and encourages high standards."
+      what_works: "Evidence shows high additionality and significant GVA impact, with support backed by three rigorous counterfactual studies. Achieves leverage of approximately 0.67:1, meaning every pound of public funding generates additional private investment. Competitive process helps identify the most promising projects and encourages high standards. Between 2004-2019, supported at least 14,681 businesses with over £2.5 billion in grants, serving as a central pillar of UK innovation policy with strong adaptability to changing priorities including net zero transition and regional growth objectives."
       what_doesnt: "Significant oversubscription creates frustration among applicants and may deter future applications. Success rates vary considerably between competitions, and administrative burden can be substantial for smaller companies despite efforts to streamline processes."
       additionality: "**High evidence** - Rigorous evaluation shows employment increases of 23-27% and turnover growth of 28-14% over six years for supported companies compared to matched control groups."
       timeline: "Turnover and employment effects typically emerge within 1-2 years of grant completion, while productivity improvements generally take 3-5 years to materialise."
 
     # RECOMMENDATIONS
-    recommendations: "Maintain the current mix of thematic and open funding calls to balance strategic priorities with bottom-up innovation. Scale up Launchpads and regional programs to better address place-based innovation objectives. Streamline administrative processes for smaller grants while maintaining rigorous assessment for larger awards. Consider expanding eligibility criteria or funding rates for strategic priority areas. Between 2004-2019, supported at least 14,681 businesses with over £2.5 billion in grants, serving as a central pillar of UK innovation policy with strong adaptability to changing priorities including net zero transition and regional growth objectives."
+    recommendations:
+      - "Maintain the current mix of thematic and open funding calls to balance strategic priorities with bottom-up innovation."
+      - "Scale up Launchpads and regional programs to better address place-based innovation objectives."
+      - "Streamline administrative processes for smaller grants while maintaining rigorous assessment for larger awards."
+      - "Consider expanding eligibility criteria or funding rates for strategic priority areas."
 
     # IMPLEMENTATION
     implementation:
