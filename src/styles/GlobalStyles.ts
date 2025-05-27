@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import { ThemeType } from './theme';
+import type { ThemeType } from './theme';
 
 interface GlobalStyleProps {
   theme: ThemeType;
@@ -7,14 +7,14 @@ interface GlobalStyleProps {
 
 export const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
   body {
-    background-color: ${({ theme }) => theme.body};
-    color: ${({ theme }) => theme.text};
+    background-color: ${({ theme }: GlobalStyleProps) => theme.body};
+    color: ${({ theme }: GlobalStyleProps) => theme.text};
     font-family: Tahoma, Helvetica, Arial, Roboto, sans-serif;
     transition: all 0.50s linear;
   }
 
   a {
-    color: ${({ theme }) => theme.accentColor};
+    color: ${({ theme }: GlobalStyleProps) => theme.accentColor};
     text-decoration: none;
   }
 
