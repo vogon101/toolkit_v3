@@ -137,8 +137,8 @@ export const ToolList = styled.ul`
 `;
 
 export const ToolListItem = styled.li<{ active: boolean; itemType?: 'tool' | 'objective' }>`
-  padding: 12px 16px;
-  margin: 8px 0;
+  padding: 8px 12px;
+  margin: 4px 0;
   cursor: pointer;
   border-radius: 6px;
   transition: all 0.2s ease;
@@ -158,6 +158,7 @@ export const ToolListItem = styled.li<{ active: boolean; itemType?: 'tool' | 'ob
       props.active 
         ? (props.itemType === 'objective' ? objectiveColors.activeHoverBg : toolColors.activeHoverBg) 
         : (props.itemType === 'objective' ? objectiveColors.inactiveHoverBg : toolColors.inactiveHoverBg)};
+    transform: scale(1.01);
   }
 `;
 

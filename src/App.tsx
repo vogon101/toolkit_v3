@@ -38,6 +38,7 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [activeFilters, setActiveFilters] = useState<string[]>([])
   const [showUserGuide, setShowUserGuide] = useState(false)
+  const [guideHtml, setGuideHtml] = useState<string>('')
   const mainContentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -70,6 +71,10 @@ function App() {
             setShowUserGuide(true);
             setSelectedItem(null);
             setSelectedItemType(null);
+            // Fetch guide HTML
+            const guideResponse = await fetch('/guide.html');
+            const guideText = await guideResponse.text();
+            setGuideHtml(guideText);
             return;
           }
           const [type, tag] = hash.split(':');
@@ -104,11 +109,24 @@ function App() {
         } else {
           // If no tools or objectives, show guide by default or a message
           setShowUserGuide(true);
+          // Fetch guide HTML
+          const guideResponse = await fetch('/guide.html');
+          const guideText = await guideResponse.text();
+          setGuideHtml(guideText);
         }
 
       } catch (error) {
         console.error('Error loading data:', error);
         setShowUserGuide(true); // Show guide on error as a fallback
+        // Fetch guide HTML on error as well
+        try {
+            const guideResponse = await fetch('/guide.html');
+            const guideText = await guideResponse.text();
+            setGuideHtml(guideText);
+        } catch (guideError) {
+            console.error('Error loading guide HTML:', guideError);
+            setGuideHtml('<p>Error loading user guide. Please try again later.</p>');
+        }
       }
     };
 
@@ -189,7 +207,9 @@ function App() {
     <AppContainer>
       <StickyHeader>
         <HeaderSection>
-          <HeaderLogo src="/logo.png" alt="Logo" />
+          <a href="https://britishprogress.org" target="_blank" rel="noopener noreferrer">
+            <HeaderLogo src="/logo.png" alt="Logo" />
+          </a>
         </HeaderSection>
         <HeaderTitle>R&D Policy Toolkit</HeaderTitle>
         <HeaderSection>
@@ -273,11 +293,9 @@ function App() {
         <MainContent ref={mainContentRef}>
           {showUserGuide ? (
             <Section>
-              <PageTitle>How to Use This Toolkit</PageTitle>
-              <MarkdownText>
-                <p>This is a placeholder for the summary page and user guide. Content will be added here soon.</p>
-                <p>In the meantime, explore the tools and objectives using the sidebar and filters!</p>
-              </MarkdownText>
+              {/* <PageTitle>How to Use This Toolkit</PageTitle> */}
+              {/* Render fetched HTML content */}
+              <MarkdownText dangerouslySetInnerHTML={{ __html: guideHtml }} />
             </Section>
           ) : selectedItem && tagsList && selectedItemType === 'tool' ? (
             <ToolDetail 
@@ -295,10 +313,10 @@ function App() {
             />
           ) : (
             <Section>
-                <PageTitle>Welcome!</PageTitle>
+                <PageTitle>Loading...</PageTitle>
                  <MarkdownText>
-                    <p>Select a tool or objective from the sidebar to get started, or use the search and filter options.</p>
-                    <p>If you need help, click on the "How to use this toolkit" link in the header.</p>
+                    <p>Loading content...</p>
+                    <p>If this message persists, please contact us at <a href="mailto:info@britishprogress.org">info@britishprogress.org</a></p>
                 </MarkdownText>
             </Section>
           )}
