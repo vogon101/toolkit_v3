@@ -48,13 +48,11 @@ tools:
         source: "Bloom N. et al."
         url: "https://www.aeaweb.org/articles?id=10.1257/jep.33.3.163"
 
-    # POLICY OBJECTIVES
-    objectives: ["increase_business_rd_investment", "support_sme_innovation"]
-
     # TAGS
     tags:
+      objectives: ["increase_business_rd_investment", "support_sme_innovation"]
       innovation_stage: ["early_stage", "applied_research", "development", "demonstration", "deployment"]
-      sectors: ["cross_sector", "manufacturing", "ict", "life_sciences", "aerospace", "automotive", "energy", "professional_services"]
+      sectors: ["cross_sector"]
       delivery_mechanism: ["tax_incentive", "automatic_entitlement"]
       targeting: ["broad_based", "firm_size", "business_focused"]
       timeline: ["immediate_cash_flow", "long_term_innovation", "fast_implementation"]
@@ -100,11 +98,9 @@ tools:
     # REFERENCE
     further_reading: []
 
-    # POLICY OBJECTIVES
-    objectives: ["support_early_stage_research", "solve_government_challenges"]
-
     # TAGS
     tags:
+      objectives: ["support_early_stage_research", "solve_government_challenges"]
       innovation_stage: ["early_stage", "applied_research"]
       sectors: ["cross_sector"]
       delivery_mechanism: ["innovation_prize"]
@@ -153,11 +149,9 @@ tools:
     # REFERENCE
     further_reading: []
 
-    # POLICY OBJECTIVES
-    objectives: ["strengthen_economic_security", "accelerate_net_zero_innovation", "create_markets_for_innovation"]
-
     # TAGS
     tags:
+      objectives: ["strengthen_economic_security", "accelerate_net_zero_innovation", "create_markets_for_innovation"]
       innovation_stage: ["early_stage", "applied_research", "development"]
       sectors: ["cross_sector"]
       delivery_mechanism: ["market_commitment"]
@@ -206,11 +200,9 @@ tools:
     # REFERENCE
     further_reading: []
 
-    # POLICY OBJECTIVES
-    objectives: ["increase_business_rd_investment", "support_sme_innovation", "support_applied_rd_commercialization"]
-
     # TAGS
     tags:
+      objectives: ["increase_business_rd_investment", "support_sme_innovation", "support_applied_rd_commercialization"]
       innovation_stage: ["early_stage", "applied_research", "development", "demonstration"]
       sectors: ["cross_sector"]
       delivery_mechanism: ["direct_grant", "collaborative_grant"]

@@ -30,14 +30,22 @@ export interface Tool {
     source?: string;
     url?: string;
   }>;
-  objectives: string[];
   tags: {
+    objectives: string[];
     innovation_stage: string[];
     sectors: string[];
     delivery_mechanism: string[];
     targeting: string[];
     timeline: string[];
   };
+}
+
+export interface Objective {
+  name: string;
+  tag: string;
+  description: string;
+  notes?: string;
+  related_tools: string[];
 }
 
 export interface TagItem {
@@ -54,4 +62,7 @@ export interface TagsList {
     targeting: TagItem[];
     timeline: TagItem[];
   };
-} 
+}
+
+export type SelectedItem = Tool | Objective | null;
+export type ItemType = 'tool' | 'objective' | null; 
