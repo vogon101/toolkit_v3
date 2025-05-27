@@ -275,7 +275,7 @@ function App() {
             <Section>
               <PageTitle>How to Use This Toolkit</PageTitle>
               <MarkdownText>
-                <p>This is a placeholder for the user guide. Content will be added here soon.</p>
+                <p>This is a placeholder for the summary page and user guide. Content will be added here soon.</p>
                 <p>In the meantime, explore the tools and objectives using the sidebar and filters!</p>
               </MarkdownText>
             </Section>
