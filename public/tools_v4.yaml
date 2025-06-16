@@ -234,3 +234,4 @@ tools:
 # - Tags use controlled vocabulary from tags_list.yaml for consistent filtering
 # - Content can be easily migrated from existing documents
 # - Structure is extensible for additional tools
+# ------- Trigger redeploy -------
