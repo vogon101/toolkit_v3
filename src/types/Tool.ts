@@ -1,42 +1,84 @@
 export interface Tool {
   name: string;
-  tag: string;
-  purpose_and_application: {
+  /**
+   * Primary slug-like identifier used in the new v4 YAML.
+   * We also expose a legacy `tag` alias so existing objective files that
+   * reference the old value continue to work during the migration.
+   */
+  id: string;
+  /**
+   * Temporary alias for compatibility with older code / YAML that still
+   * expects `tool.tag`.  Will be removed once everything is migrated.
+   */
+  tag?: string;
+  /** High-level headline judgment of the tool (v4 section 1) */
+  overall_assessment?: string;
+  /** Legacy grouping from v3 schema – kept optional during migration */
+  purpose_and_application?: {
     why: string;
     optimal_conditions: string;
   };
-  how_it_works: string;
-  targetability: {
-    sectoral: string;
-    technological: string;
-    regional: string;
-    by_firm_type: string;
-    overall_assessment: string;
+  how_it_works: {
+    description?: string;
+    mechanism?: string;
+    complexity?: string;
+    complexity_details?: string;
+    flexibility?: string;
+    flexibility_details?: string;
   };
-  effectiveness: {
-    what_works: string;
-    what_doesnt: string;
-    additionality: string;
-    timeline: string;
+  targetability?: {
+    overall_assessment?: string;
+    sectoral?: {
+      level?: string;
+      details?: string;
+    };
+    technological?: {
+      level?: string;
+      details?: string;
+    };
+    regional?: {
+      level?: string;
+      details?: string;
+    };
+    by_firm_type?: {
+      level?: string;
+      details?: string;
+    };
   };
-  recommendations: string[];
-  implementation: {
+  effectiveness?: {
+    evidence_quality?: string;
+    what_works?: string[];
+    what_doesnt_work?: string[];
+    additionality?: {
+      level?: string;
+      details?: string;
+    };
+    time_to_impact?: string;
+    fraud_risk?: string;
+  };
+  /** Legacy field – not present in v4 */
+  recommendations?: string[];
+  /** Legacy implementation block from v3 schema – not present in v4 */
+  implementation?: {
     lead_body: string;
     ease: string;
     flexibility: string;
   };
-  further_reading: Array<{
-    title?: string;
-    source?: string;
+  /** Consolidated UK-specific experience block (markdown) */
+  uk_experience?: string;
+  cbp_view?: string;
+  further_reading?: Array<{
+    title: string;
     url?: string;
+    author?: string;
   }>;
   tags: {
-    objectives: string[];
-    innovation_stage: string[];
-    sectors: string[];
-    delivery_mechanism: string[];
-    targeting: string[];
-    timeline: string[];
+    objectives?: string[];
+    innovation_stage?: string[];
+    sectors?: string[];
+    delivery_mechanism?: string[];
+    targeting?: string[];
+    timeline?: string[];
   };
 }
 

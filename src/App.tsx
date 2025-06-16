@@ -46,14 +46,14 @@ function App() {
   const [activeFilters, setActiveFilters] = useState<string[]>([])
   const [showUserGuide, setShowUserGuide] = useState(false)
   const [guideHtml, setGuideHtml] = useState<string>('')
-  const [collapsedSections, setCollapsedSections] = useState<{ objectives: boolean; tools: boolean }>({ objectives: false, tools: false });
+  const [collapsedSections, setCollapsedSections] = useState<{ objectives: boolean; tools: boolean }>({ objectives: true, tools: false });
   const mainContentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const loadData = async () => {
       try {
         const [toolsResponse, tagsResponse, objectivesGroupedResponse] = await Promise.all([
-          fetch('/tools.yaml'),
+          fetch('/tools_v4.yaml'),
           fetch('/tags_list.yaml'),
           fetch('/objectives_grouped.yaml'),
         ]);
@@ -68,7 +68,19 @@ function App() {
         const tagsData = parse(tagsYaml);
         const objectivesGroupedData = parse(objectivesGroupedYaml);
 
-        setTools(toolsData.tools);
+        const slugify = (str: string) =>
+          str
+            .toLowerCase()
+            .replace(/&/g, 'and') // Replace ampersands with 'and'
+            .replace(/[^a-z0-9]+/g, '_') // Non-alphanumeric to underscores
+            .replace(/^_+|_+$/g, ''); // Trim leading/trailing underscores
+
+        const toolsWithTag = toolsData.tools.map((t: any) => ({
+          ...t,
+          tag: t.tag || slugify(t.name),
+        }));
+
+        setTools(toolsWithTag);
         setTagsList(tagsData);
         setObjectiveGroups(objectivesGroupedData.objective_groups);
 
@@ -92,8 +104,8 @@ function App() {
             return;
           }
           const [type, tag] = hash.split(':');
-          if (type === 'tool' && toolsData.tools) {
-            const toolFromHash = toolsData.tools.find((t: Tool) => t.tag === tag);
+          if (type === 'tool' && toolsWithTag) {
+            const toolFromHash = toolsWithTag.find((t: Tool) => t.tag === tag);
             if (toolFromHash) {
               setSelectedItem(toolFromHash);
               setSelectedItemType('tool');
@@ -114,8 +126,8 @@ function App() {
         }
 
         // Fallback to default selection if no valid hash and not showing guide
-        if (toolsData.tools.length > 0) {
-          setSelectedItem(toolsData.tools[0]);
+        if (toolsWithTag.length > 0) {
+          setSelectedItem(toolsWithTag[0]);
           setSelectedItemType('tool');
           setShowUserGuide(false);
           setCollapsedSections(prev => ({ ...prev, tools: false })); // Expand tools section
@@ -248,6 +260,8 @@ function App() {
           <FilterBarContainer>
             <SearchInput 
               type="text" 
+              name="search" 
+              id="search-input" 
               placeholder="Search objectives & tools..." 
               value={searchTerm} 
               onChange={handleSearchChange} 

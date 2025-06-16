@@ -28,6 +28,12 @@ interface ToolDetailProps {
   onAddFilter: (tag: string) => void;
 }
 
+// Helper to ensure we always pass a string to ReactMarkdown, preventing runtime errors if the
+// source value is accidentally an object/array.
+const SafeMarkdown: React.FC<{ value?: unknown }> = ({ value }) => (
+  <ReactMarkdown>{typeof value === 'string' ? value : String(value ?? '')}</ReactMarkdown>
+);
+
 export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectives, onSelectObjective, onAddFilter }) => {
   const getTagName = (category: keyof TagsList['tags'], tag: string) => {
     const foundTag = tagsList.tags[category].find(t => t.tag === tag);
@@ -38,6 +44,19 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
     return objectives.find(o => o.tag === tag);
   };
 
+  const renderList = (items?: string[]) => {
+    if (!items || items.length === 0) return <p>N/A</p>;
+    return (
+      <ul>
+        {items.map((item, idx) => (
+          <li key={idx}>
+            <SafeMarkdown value={item} />
+          </li>
+        ))}
+      </ul>
+    );
+  };
+
   return (
     <div>
       <TitleContainer>
@@ -45,133 +64,219 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
         <ItemTypeIndicator itemType="tool">Tool</ItemTypeIndicator>
       </TitleContainer>
 
-      <Section>
-        <SectionTitle itemType="tool">Purpose & Application</SectionTitle>
-        <SubSection>
-          <SubSectionTitle itemType="tool">Why Use This Tool</SubSectionTitle>
+      {/* Overall Assessment */}
+      {tool.overall_assessment && (
+        <Section>
+          <SectionTitle itemType="tool">Overall Assessment</SectionTitle>
           <MarkdownText>
-            <ReactMarkdown>{tool.purpose_and_application.why}</ReactMarkdown>
+            <SafeMarkdown value={tool.overall_assessment} />
           </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">How It Works</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.how_it_works}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">When To Use This Tool</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.purpose_and_application.optimal_conditions}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-      </Section>
+        </Section>
+      )}
 
-      <Section>
-        <SectionTitle itemType="tool">Targetability</SectionTitle>
-        <TargetabilityGrid>
-          <TargetabilityBox>
-            <SubSectionTitle itemType="tool">Sectoral</SubSectionTitle>
-            <MarkdownText>
-              <ReactMarkdown>{tool.targetability.sectoral}</ReactMarkdown>
-            </MarkdownText>
-          </TargetabilityBox>
-          <TargetabilityBox>
-            <SubSectionTitle itemType="tool">Technological</SubSectionTitle>
-            <MarkdownText>
-              <ReactMarkdown>{tool.targetability.technological}</ReactMarkdown>
-            </MarkdownText>
-          </TargetabilityBox>
-          <TargetabilityBox>
-            <SubSectionTitle itemType="tool">Regional</SubSectionTitle>
-            <MarkdownText>
-              <ReactMarkdown>{tool.targetability.regional}</ReactMarkdown>
-            </MarkdownText>
-          </TargetabilityBox>
-          <TargetabilityBox>
-            <SubSectionTitle itemType="tool">By Firm Type</SubSectionTitle>
-            <MarkdownText>
-              <ReactMarkdown>{tool.targetability.by_firm_type}</ReactMarkdown>
-            </MarkdownText>
-          </TargetabilityBox>
-        </TargetabilityGrid>
-        <SubSection style={{ marginTop: '20px' }}>
-          <SubSectionTitle itemType="tool">Overall Assessment</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.targetability.overall_assessment}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-      </Section>
-
-      <Section>
-        <SectionTitle itemType="tool">Effectiveness</SectionTitle>
-        <SubSection>
-          <SubSectionTitle itemType="tool">What Works</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.effectiveness.what_works}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">What Doesn't Work</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.effectiveness.what_doesnt}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">Additionality</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.effectiveness.additionality}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">Time To Impact</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.effectiveness.timeline}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-      </Section>
-
-      <Section>
-        <SectionTitle itemType="tool">Implementation</SectionTitle>
-        <SubSection>
-          <SubSectionTitle itemType="tool">Lead Body</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.implementation.lead_body}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">Complexity</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.implementation.ease}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-        <SubSection>
-          <SubSectionTitle itemType="tool">Flexibility</SubSectionTitle>
-          <MarkdownText>
-            <ReactMarkdown>{tool.implementation.flexibility}</ReactMarkdown>
-          </MarkdownText>
-        </SubSection>
-      </Section>
-
-      <Section>
-        <SectionTitle itemType="tool">Recommendations</SectionTitle>
-        <MarkdownText>
-          {Array.isArray(tool.recommendations) && tool.recommendations.length > 0 ? (
-            <ul>
-              {tool.recommendations.map((rec, index) => (
-                <li key={index}>
-                  <ReactMarkdown>{rec}</ReactMarkdown>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No recommendations available.</p>
+      {/* How It Works */}
+      {tool.how_it_works && (
+        <Section>
+          <SectionTitle itemType="tool">How It Works</SectionTitle>
+          {tool.how_it_works.description && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Description</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={tool.how_it_works.description} />
+              </MarkdownText>
+            </SubSection>
           )}
-        </MarkdownText>
-      </Section>
+          {tool.how_it_works.mechanism && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Mechanism</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={tool.how_it_works.mechanism} />
+              </MarkdownText>
+            </SubSection>
+          )}
+          {(tool.how_it_works.complexity || tool.how_it_works.complexity_details) && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Complexity</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={`**${tool.how_it_works.complexity || ''}** – ${tool.how_it_works.complexity_details || ''}`} />
+              </MarkdownText>
+            </SubSection>
+          )}
+          {(tool.how_it_works.flexibility || tool.how_it_works.flexibility_details) && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Flexibility</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={`**${tool.how_it_works.flexibility || ''}** – ${tool.how_it_works.flexibility_details || ''}`} />
+              </MarkdownText>
+            </SubSection>
+          )}
+        </Section>
+      )}
 
-      {/* New Policy Objectives Section */}
-      {tool.tags.objectives && tool.tags.objectives.length > 0 && (
+      {/* UK Experience */}
+      {tool.uk_experience && (
+        <Section>
+          <SectionTitle itemType="tool">UK Experience</SectionTitle>
+          {typeof tool.uk_experience === 'string' ? (
+            <MarkdownText>
+              <SafeMarkdown value={tool.uk_experience} />
+            </MarkdownText>
+          ) : (
+            // If uk_experience was provided as an object with sub-fields, render each field nicely.
+            Object.entries(tool.uk_experience as Record<string, unknown>).map(([key, val]) => (
+              <SubSection key={key}>
+                <SubSectionTitle itemType="tool">
+                  {key
+                    .replace(/_/g, ' ')
+                    .replace(/\b\w/g, c => c.toUpperCase())}
+                </SubSectionTitle>
+                <MarkdownText>
+                  <SafeMarkdown value={val} />
+                </MarkdownText>
+              </SubSection>
+            ))
+          )}
+        </Section>
+      )}
+
+      {/* Effectiveness */}
+      {tool.effectiveness && (
+        <Section>
+          <SectionTitle itemType="tool">Effectiveness</SectionTitle>
+          {tool.effectiveness.evidence_quality && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Evidence Quality</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={tool.effectiveness.evidence_quality} />
+              </MarkdownText>
+            </SubSection>
+          )}
+          <SubSection>
+            <SubSectionTitle itemType="tool">What Works</SubSectionTitle>
+            {renderList(tool.effectiveness.what_works)}
+          </SubSection>
+          <SubSection>
+            <SubSectionTitle itemType="tool">What Doesn't Work</SubSectionTitle>
+            {renderList(tool.effectiveness.what_doesnt_work)}
+          </SubSection>
+          {tool.effectiveness.additionality && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Additionality</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={`**${tool.effectiveness.additionality.level || ''}** – ${tool.effectiveness.additionality.details || ''}`} />
+              </MarkdownText>
+            </SubSection>
+          )}
+          {tool.effectiveness.time_to_impact && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Time to Impact</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={tool.effectiveness.time_to_impact} />
+              </MarkdownText>
+            </SubSection>
+          )}
+          {tool.effectiveness.fraud_risk && (
+            <SubSection>
+              <SubSectionTitle itemType="tool">Fraud Risk</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={tool.effectiveness.fraud_risk} />
+              </MarkdownText>
+            </SubSection>
+          )}
+        </Section>
+      )}
+
+      {/* Targetability */}
+      {tool.targetability && (
+        <Section>
+          <SectionTitle itemType="tool">Targetability</SectionTitle>
+          <TargetabilityGrid>
+            <TargetabilityBox>
+              <SubSectionTitle itemType="tool">Sectoral</SubSectionTitle>
+              {tool.targetability.sectoral ? (
+                <MarkdownText>
+                  <SafeMarkdown value={`**${tool.targetability.sectoral.level || ''}** – ${tool.targetability.sectoral.details || ''}`} />
+                </MarkdownText>
+              ) : (
+                <p>N/A</p>
+              )}
+            </TargetabilityBox>
+            <TargetabilityBox>
+              <SubSectionTitle itemType="tool">Technological</SubSectionTitle>
+              {tool.targetability.technological ? (
+                <MarkdownText>
+                  <SafeMarkdown value={`**${tool.targetability.technological.level || ''}** – ${tool.targetability.technological.details || ''}`} />
+                </MarkdownText>
+              ) : (
+                <p>N/A</p>
+              )}
+            </TargetabilityBox>
+            <TargetabilityBox>
+              <SubSectionTitle itemType="tool">Regional</SubSectionTitle>
+              {tool.targetability.regional ? (
+                <MarkdownText>
+                  <SafeMarkdown value={`**${tool.targetability.regional.level || ''}** – ${tool.targetability.regional.details || ''}`} />
+                </MarkdownText>
+              ) : (
+                <p>N/A</p>
+              )}
+            </TargetabilityBox>
+            <TargetabilityBox>
+              <SubSectionTitle itemType="tool">By Firm Type</SubSectionTitle>
+              {tool.targetability.by_firm_type ? (
+                <MarkdownText>
+                  <SafeMarkdown value={`**${tool.targetability.by_firm_type.level || ''}** – ${tool.targetability.by_firm_type.details || ''}`} />
+                </MarkdownText>
+              ) : (
+                <p>N/A</p>
+              )}
+            </TargetabilityBox>
+          </TargetabilityGrid>
+          {tool.targetability.overall_assessment && (
+            <SubSection style={{ marginTop: '20px' }}>
+              <SubSectionTitle itemType="tool">Overall Assessment</SubSectionTitle>
+              <MarkdownText>
+                <SafeMarkdown value={tool.targetability.overall_assessment} />
+              </MarkdownText>
+            </SubSection>
+          )}
+        </Section>
+      )}
+
+      {/* CBP View */}
+      {tool.cbp_view && (
+        <Section>
+          <SectionTitle itemType="tool">CBP View: When to Use This Tool</SectionTitle>
+          <MarkdownText>
+            <SafeMarkdown value={tool.cbp_view} />
+          </MarkdownText>
+        </Section>
+      )}
+
+      {/* Further Reading */}
+      {tool.further_reading && tool.further_reading.length > 0 && (
+        <Section>
+          <SectionTitle itemType="tool">Further Reading</SectionTitle>
+          <FurtherReadingList>
+            {tool.further_reading.map((item, index) => (
+              <FurtherReadingListItem key={index}>
+                {item.url ? (
+                  <FurtherReadingLink href={item.url} target="_blank" rel="noopener noreferrer">
+                    {item.title} {item.author ? `(${item.author})` : ''}
+                  </FurtherReadingLink>
+                ) : (
+                  <FurtherReadingText>
+                    {item.title} {item.author ? `(${item.author})` : ''}
+                  </FurtherReadingText>
+                )}
+              </FurtherReadingListItem>
+            ))}
+          </FurtherReadingList>
+        </Section>
+      )}
+
+      {/* Related Policy Objectives */}
+      {tool.tags?.objectives && tool.tags.objectives.length > 0 && (
         <Section>
           <SectionTitle itemType="tool">Related Policy Objectives</SectionTitle>
           <TagContainer>
@@ -179,9 +284,9 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
               const objective = getObjectiveByTag(tagString);
               const tagName = getTagName('objectives', tagString);
               return (
-                <Tag 
-                  key={index} 
-                  itemType="tool" 
+                <Tag
+                  key={index}
+                  itemType="tool"
                   onClick={objective ? () => onSelectObjective(objective) : undefined}
                   style={objective ? { cursor: 'pointer' } : {}}
                 >
@@ -193,34 +298,12 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
         </Section>
       )}
 
-      {/* Further Reading Section - Moved Here */}
-      {tool.further_reading && tool.further_reading.length > 0 && (
-        <Section>
-          <SectionTitle itemType="tool">Further Reading</SectionTitle>
-          <FurtherReadingList>
-            {tool.further_reading.map((item, index) => (
-              <FurtherReadingListItem key={index}>
-                {item.url ? (
-                  <FurtherReadingLink href={item.url} target="_blank" rel="noopener noreferrer">
-                    {item.title} ({item.source})
-                  </FurtherReadingLink>
-                ) : (
-                  <FurtherReadingText>
-                    {item.title} ({item.source})
-                  </FurtherReadingText>
-                )}
-              </FurtherReadingListItem>
-            ))}
-          </FurtherReadingList>
-        </Section>
-      )}
-
+      {/* Filter Tags Section (unchanged) */}
       <Section variant="filter">
-        {/* <SectionTitle itemType="tool">Filter Tags</SectionTitle> */}
         <SubSection variant="filter">
           <SubSectionTitle itemType="tool" variant="filter">Innovation Stage</SubSectionTitle>
           <TagContainer variant="filter">
-            {tool.tags.innovation_stage.map((tag, index) => {
+            {(tool.tags.innovation_stage || []).map((tag, index) => {
               const tagName = getTagName('innovation_stage', tag);
               return (
                 <Tag key={index} itemType="tool" variant="filter" onClick={() => onAddFilter(tag)}>
@@ -233,7 +316,7 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
         <SubSection variant="filter">
           <SubSectionTitle itemType="tool" variant="filter">Sectors</SubSectionTitle>
           <TagContainer variant="filter">
-            {tool.tags.sectors.map((tag, index) => {
+            {(tool.tags.sectors || []).map((tag, index) => {
               const tagName = getTagName('sectors', tag);
               return (
                 <Tag key={index} itemType="tool" variant="filter" onClick={() => onAddFilter(tag)}>
@@ -246,7 +329,7 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
         <SubSection variant="filter">
           <SubSectionTitle itemType="tool" variant="filter">Targeting</SubSectionTitle>
           <TagContainer variant="filter">
-            {tool.tags.targeting?.map((tag, index) => {
+            {(tool.tags.targeting || []).map((tag, index) => {
               const tagName = getTagName('targeting', tag);
               return (
                 <Tag key={index} itemType="tool" variant="filter" onClick={() => onAddFilter(tag)}>
@@ -259,7 +342,7 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
         <SubSection variant="filter">
           <SubSectionTitle itemType="tool" variant="filter">Timeline</SubSectionTitle>
           <TagContainer variant="filter">
-            {tool.tags.timeline?.map((tag, index) => {
+            {(tool.tags.timeline || []).map((tag, index) => {
               const tagName = getTagName('timeline', tag);
               return (
                 <Tag key={index} itemType="tool" variant="filter" onClick={() => onAddFilter(tag)}>
