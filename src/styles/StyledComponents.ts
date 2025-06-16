@@ -216,9 +216,21 @@ export const PageTitle = styled.h1`
 
 export const SidebarTitle = styled.h2<{ itemType?: 'tool' | 'objective' }>`
   font-size: 1.2em;
-  color: ${props => props.itemType === 'objective' ? objectiveColors.primary : toolColors.primary};
-  margin: 0 0 10px 0;
-  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+  color: ${(props) => (props.itemType === 'tool' ? toolColors.primary : objectiveColors.primary)};
+  cursor: pointer;
+`;
+
+export const SidebarSubheading = styled.h3`
+  font-size: 0.9em;
+  font-weight: 800;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-left: 8px; // Reduced from 12px to nudge left
+  color: ${objectiveColors.primary}; // Changed to dark blue
 `;
 
 export const SubSection = styled.div<{ variant?: ComponentVariant }>`
