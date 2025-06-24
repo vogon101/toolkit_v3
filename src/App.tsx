@@ -53,7 +53,7 @@ function App() {
     const loadData = async () => {
       try {
         const [toolsResponse, tagsResponse, objectivesGroupedResponse] = await Promise.all([
-          fetch('/tools_v4.yaml'),
+          fetch('/tools_v5.yaml'),
           fetch('/tags_list.yaml'),
           fetch('/objectives_grouped.yaml'),
         ]);

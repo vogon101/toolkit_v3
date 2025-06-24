@@ -113,73 +113,31 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
         </Section>
       )}
 
-      {/* UK Experience */}
-      {tool.uk_experience && (
+      {/* Effectiveness and UK Impact */}
+      {tool.effectiveness_and_uk_impact && (
         <Section>
-          <SectionTitle itemType="tool">UK Experience</SectionTitle>
-          {typeof tool.uk_experience === 'string' ? (
-            <MarkdownText>
-              <SafeMarkdown value={tool.uk_experience} />
-            </MarkdownText>
-          ) : (
-            // If uk_experience was provided as an object with sub-fields, render each field nicely.
-            Object.entries(tool.uk_experience as Record<string, unknown>).map(([key, val]) => (
-              <SubSection key={key}>
-                <SubSectionTitle itemType="tool">
-                  {key
-                    .replace(/_/g, ' ')
-                    .replace(/\b\w/g, c => c.toUpperCase())}
-                </SubSectionTitle>
-                <MarkdownText>
-                  <SafeMarkdown value={val} />
-                </MarkdownText>
-              </SubSection>
-            ))
-          )}
-        </Section>
-      )}
-
-      {/* Effectiveness */}
-      {tool.effectiveness && (
-        <Section>
-          <SectionTitle itemType="tool">Effectiveness</SectionTitle>
-          {tool.effectiveness.evidence_quality && (
+          <SectionTitle itemType="tool">Effectiveness and UK Impact</SectionTitle>
+          {tool.effectiveness_and_uk_impact.evidence_summary && (
             <SubSection>
-              <SubSectionTitle itemType="tool">Evidence Quality</SubSectionTitle>
+              <SubSectionTitle itemType="tool">Evidence Summary</SubSectionTitle>
               <MarkdownText>
-                <SafeMarkdown value={tool.effectiveness.evidence_quality} />
+                <SafeMarkdown value={tool.effectiveness_and_uk_impact.evidence_summary} />
               </MarkdownText>
             </SubSection>
           )}
           <SubSection>
             <SubSectionTitle itemType="tool">What Works</SubSectionTitle>
-            {renderList(tool.effectiveness.what_works)}
+            {renderList(tool.effectiveness_and_uk_impact.what_works)}
           </SubSection>
           <SubSection>
             <SubSectionTitle itemType="tool">What Doesn't Work</SubSectionTitle>
-            {renderList(tool.effectiveness.what_doesnt_work)}
+            {renderList(tool.effectiveness_and_uk_impact.what_doesnt_work)}
           </SubSection>
-          {tool.effectiveness.additionality && (
-            <SubSection>
-              <SubSectionTitle itemType="tool">Additionality</SubSectionTitle>
-              <MarkdownText>
-                <SafeMarkdown value={`**${tool.effectiveness.additionality.level || ''}** – ${tool.effectiveness.additionality.details || ''}`} />
-              </MarkdownText>
-            </SubSection>
-          )}
-          {tool.effectiveness.time_to_impact && (
+          {tool.effectiveness_and_uk_impact.time_to_impact && (
             <SubSection>
               <SubSectionTitle itemType="tool">Time to Impact</SubSectionTitle>
               <MarkdownText>
-                <SafeMarkdown value={tool.effectiveness.time_to_impact} />
-              </MarkdownText>
-            </SubSection>
-          )}
-          {tool.effectiveness.fraud_risk && (
-            <SubSection>
-              <SubSectionTitle itemType="tool">Fraud Risk</SubSectionTitle>
-              <MarkdownText>
-                <SafeMarkdown value={tool.effectiveness.fraud_risk} />
+                <SafeMarkdown value={tool.effectiveness_and_uk_impact.time_to_impact} />
               </MarkdownText>
             </SubSection>
           )}
@@ -244,11 +202,11 @@ export const ToolDetail: React.FC<ToolDetailProps> = ({ tool, tagsList, objectiv
       )}
 
       {/* CBP View */}
-      {tool.cbp_view && (
+      {tool.cbp_view_recommendations_for_uk && (
         <Section>
-          <SectionTitle itemType="tool">CBP View: When to Use This Tool</SectionTitle>
+          <SectionTitle itemType="tool">Recommendations for the UK (CBP view)</SectionTitle>
           <MarkdownText>
-            <SafeMarkdown value={tool.cbp_view} />
+            <SafeMarkdown value={tool.cbp_view_recommendations_for_uk} />
           </MarkdownText>
         </Section>
       )}

@@ -26,6 +26,12 @@ export interface Tool {
     flexibility?: string;
     flexibility_details?: string;
   };
+  effectiveness_and_uk_impact?: {
+    evidence_summary?: string;
+    what_works?: string[];
+    what_doesnt_work?: string[];
+    time_to_impact?: string;
+  };
   targetability?: {
     overall_assessment?: string;
     sectoral?: {
@@ -45,17 +51,6 @@ export interface Tool {
       details?: string;
     };
   };
-  effectiveness?: {
-    evidence_quality?: string;
-    what_works?: string[];
-    what_doesnt_work?: string[];
-    additionality?: {
-      level?: string;
-      details?: string;
-    };
-    time_to_impact?: string;
-    fraud_risk?: string;
-  };
   /** Legacy field – not present in v4 */
   recommendations?: string[];
   /** Legacy implementation block from v3 schema – not present in v4 */
@@ -64,9 +59,7 @@ export interface Tool {
     ease: string;
     flexibility: string;
   };
-  /** Consolidated UK-specific experience block (markdown) */
-  uk_experience?: string;
-  cbp_view?: string;
+  cbp_view_recommendations_for_uk?: string;
   further_reading?: Array<{
     title: string;
     url?: string;

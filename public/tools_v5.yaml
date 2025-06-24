@@ -1,0 +1,205 @@
+
+tools:
+  - name: "R&D Tax Reliefs"
+    id: "rd_tax_reliefs"
+    overall_assessment: >
+      Broad-based tool – Continue use as part of the UK's broad based innovation strategy, as they are excellent for general business R&D stimulus. Expansion is not warranted as they are poor for strategic targeting which is where efforts are needed in the UK.
+    how_it_works:
+      description: >
+        By reducing the effective cost of R&D through tax relief for companies, the tool seeks to unlock additional private sector investment in R&D, particularly encouraging businesses that might otherwise underinvest. In the UK, companies submit documentation to HMRC detailing their qualifying R&D expenditure and can claim relief through their regular tax returns.
+      mechanism: >
+        Companies can claim a taxable credit at 20% under the Research and Development Expenditure Credit (RDEC) scheme. Loss-making R&D-intensive SMEs can access Enhanced R&D Intensive Support (ERIS) with an enhanced deduction of 86% and payable tax credit up to 14.5%.
+      complexity: "Low"
+      complexity_details: >
+        Operates through existing tax infrastructure, with administrative costs pushed to beneficiaries.
+      flexibility: "Medium"
+      flexibility_details: >
+        Tax changes can be introduced at fiscal events, but major changes can prove controversial without adequate consultation and go against desire for policy stability.
+    effectiveness_and_uk_impact:
+      evidence_summary: >
+        R&D tax reliefs have been subjected to multiple national and international studies and evaluations.
+      what_works:
+        - "Delivers impressive leverage; in the UK, £7.5B in relief generated an estimated £46.7B in R&D spending in 2022-23."
+        - "Strong evidence of additionality in the UK: RDEC demonstrates £2.40-£2.70 of additional R&D per £1 of public money, while the SME scheme shows £0.60-£1.28 per £1."
+        - "Low administrative complexity since it operates through the UK's existing tax infrastructure via HMRC."
+        - "Provides fast cash delivery within months."
+      what_doesnt_work:
+        - "Limited strategic targeting capability, making it unsuitable when specific technologies or sectors need priority support."
+        - "Moderate fraud risk, with an estimated £1B lost in the UK system in 2020-21, though mitigation measures have been introduced."
+        - "Fast cash delivery but slow economic impact, with broader benefits like productivity gains emerging over years."
+      time_to_impact: >
+        Immediate cash flow benefits, long-term economic impact over 3-5 years.
+    targetability:
+      overall_assessment: >
+        Poor targeting tool - broad-based by design.
+      sectoral:
+        level: "Low"
+        details: "Broad eligibility across all sectors."
+      technological:
+        level: "Low"
+        details: "Cannot target specific technologies or innovation priorities."
+      regional:
+        level: "Low"
+        details: "No geographic differentiation in rates or eligibility."
+      by_firm_type:
+        level: "Moderate"
+        details: "Separate schemes for SMEs vs larger companies (ERIS vs RDEC)."
+    cbp_view_recommendations_for_uk: >
+      R&D tax reliefs are a core part of UK innovation policy and should be maintained for broad-based stimulus. With over two-thirds of UK government support to business R&D coming from these reliefs, a case could be made to restructure them or repurpose some of the budget for more targeted outcomes. However, they are poorly suited to incentivise the strategic direction of technological capabilities or regional rebalancing. A drastic reduction of the relief would be unhelpfully destabilising to our business community who have recently had to get to grips with changes and have been crying out for policy stability.
+    further_reading:
+      - title: "Research and Development Tax Credits Statistics: September 2024"
+        url: "https://www.gov.uk/government/statistics/corporate-tax-research-and-development-tax-credit/research-and-development-tax-credits-statistics-september-2024#key-points"
+      - title: "HMRC Research Report 598: R&D tax relief for SMEs"
+        url: "https://assets.publishing.service.gov.uk/media/5fae77c18fa8f55debcc5fd4/HMRC_Research_Report_598_R-and-D_tax_relief_for_SMEs.pdf"
+        author: "Devanani et al, 2019"
+    tags:
+      objectives:
+        - increase_business_rd_investment
+        - support_sme_innovation
+      innovation_stage:
+        - early_stage
+        - applied_research
+        - development
+        - demonstration
+        - deployment
+      sectors:
+        - cross_sector
+      delivery_mechanism:
+        - tax_incentive
+      targeting:
+        - broad_based
+        - business_focused
+      timeline:
+        - immediate_cash_flow
+        - long_term_innovation
+
+  - name: "Innovation Inducement Prizes"
+    id: "innovation_prizes"
+    overall_assessment: >
+      Precise but narrow – best suited for focused technical challenges with clear success metrics.
+    how_it_works:
+      description: >
+        Monetary prizes against clearly defined success criteria are offered, entrants fund their own R&D efforts and are awarded the prize only if they deliver on the success criteria. This tool should unlock solutions in situations where the desired end goal is clear but the development path is uncertain.
+      mechanism: >
+        The risk is primarily carried by entrants. Prizes can be structured with multiple stages or milestone payments to maintain momentum throughout development. They do not specify who should provide the solution and thus aim to draw in non-traditional innovators who might not typically engage with government R&D programmes.
+      complexity: "High"
+      complexity_details: >
+        Requires specialist technical assessors, extensive outreach and communications, often staged payment systems.
+      flexibility: "High"
+      flexibility_details: >
+        Once launched, prize terms are difficult to alter without undermining credibility, but new prizes can be designed to respond to emerging challenges.
+    effectiveness_and_uk_impact:
+      evidence_summary: >
+        The evidence base for effectiveness remains thin, making it difficult to predict outcomes or optimise design.
+      what_works:
+        - "Government only pays for successful outcomes, eliminating the risk of funding failed projects."
+        - "Can attract unconventional innovators and generate significant publicity for important challenges, as seen with the UK's Longitude and Manchester Prizes."
+        - "Leverage can reach 10:1 in large prizes as participants invest their own resources."
+        - "Most effective around TRL 3, where technical risk is high and the ideal innovator is unknown; this has been the focus of UK prize administration."
+      what_doesnt_work:
+        - "Prize design and evaluation processes are complex and resource-intensive, a key finding from UK experience."
+        - "Risk of duplication as multiple teams work on similar approaches without coordination."
+      time_to_impact: >
+        Dependent on prize duration and complexity, typically requires years for meaningful technical breakthroughs. Impact may be accelerated if prizes successfully catalyse broader investment or research interest.
+    targetability:
+      overall_assessment: >
+        Excellent targeting for specific technical goals.
+      sectoral:
+        level: "High"
+        details: "Can target any sector by choice of prize theme."
+      technological:
+        level: "High"
+        details: "Success criteria can pinpoint a single specific technical goal."
+      regional:
+        level: "Low"
+        details: "The geographic location of winners is difficult to steer or predict."
+      by_firm_type:
+        level: "Low"
+        details: "Approach is intended to create a level playing field for established and previously untested innovators alike. Winners typically tend to be start-ups and SMEs."
+    cbp_view_recommendations_for_uk: >
+      Innovation inducement prizes are most valuable when you have a clear, specific technical target but uncertainty about the optimal development path or innovator. In the UK, they are used selectively for high-profile technical challenges, typically administered through specialist organizations like Nesta's Challenge Works. They are particularly powerful for drawing in non-traditional innovators but require significant expertise to design well and should not be used when collaboration between teams would be more valuable than competition.
+    further_reading: []
+    tags:
+      objectives:
+        - solve_government_challenges
+        - support_early_stage_research
+        - create_markets_for_innovation
+      innovation_stage:
+        - early_stage
+        - applied_research
+      sectors:
+        - cross_sector
+      delivery_mechanism:
+        - innovation_prize
+      targeting:
+        - technology_specific
+        - business_focused
+        - academic_focused
+      timeline:
+        - long_term_innovation
+
+  - name: "Advance Market Commitments"
+    id: "advance_market_commitments"
+    overall_assessment: >
+      Market-making tool – powerful for creating new markets but capital-intensive and requires long-term commitment.
+    how_it_works:
+      description: >
+        Government makes an upfront commitment to purchase or subsidise a future product that meets a highly specified criteria, thereby reducing demand uncertainty and encouraging private investment in R&D and scale-up.
+      mechanism: >
+        The commitment provides a guaranteed market for innovations that meet predetermined criteria, with payment typically contingent on delivery of products meeting agreed specifications. Best targeted when fixed production costs are high, few alternative buyers exist, and the social value of the innovation significantly exceeds likely private returns.
+      complexity: "High"
+      complexity_details: >
+        Requires detailed technical specification development, ongoing monitoring, often complex international coordination.
+      flexibility: "Low"
+      flexibility_details: >
+        Commitments must remain credible and stable over many years to provide effective investment signals.
+    effectiveness_and_uk_impact:
+      evidence_summary: >
+        Additionality effects remain unclear from existing studies. Economic theory suggests high additionality where products are distant from market viability, but empirical evidence is limited.
+      what_works:
+        - "Particularly valuable for creating new markets or accelerating products with high social value but uncertain commercial demand, as seen with UK involvement in AMCs for vaccines and low carbon concrete."
+        - "Can crowd in major private R&D investment by providing demand certainty."
+        - "Government only pays upon successful delivery of specified products, minimising risk of funding failure."
+        - "Most effective at TRL 3-5, a finding from UK experience where technical feasibility is emerging but market demand is highly uncertain."
+      what_doesnt_work:
+        - "Design complexity is high, requiring detailed technical specifications and market analysis, a key learning from UK programmes."
+        - "Vulnerable to industry capture if incumbent players unduly influence specification setting."
+      time_to_impact: >
+        Typically extends beyond a single parliamentary term, depending on starting TRL and required scale-up. Long-term nature creates challenges for political sustainability.
+    targetability:
+      overall_assessment: >
+        Excellent for precise targeting but limited geographic control.
+      sectoral:
+        level: "High"
+        details: "Can be targeted to any sector. To date most used in life sciences, net zero technologies, and defence applications."
+      technological:
+        level: "High"
+        details: "AMCs can provide precise technical specifications and performance requirements."
+      regional:
+        level: "Low"
+        details: "Difficult to control where production and innovation activities locate."
+      by_firm_type:
+        level: "Low"
+        details: "Larger firms are typically better positioned to deliver at the scale required by government commitments."
+    cbp_view_recommendations_for_uk: >
+      AMCs are most powerful when creating entirely new markets where social value significantly exceeds likely private returns. The UK has experience through COVAX for vaccines and is establishing a new AMC for low carbon concrete. This experience shows that dedicated programme management and deep technical expertise are required for success. They are suitable for products that are technically feasible but face uncertain demand, but are not suitable for technologies that are too early stage or where multiple competing approaches should be pursued simultaneously.
+    further_reading: []
+    tags:
+      objectives:
+        - create_markets_for_innovation
+        - support_applied_rd_commercialisation
+        - solve_government_challenges
+      innovation_stage:
+        - applied_research
+        - development
+        - demonstration
+        - deployment
+      sectors:
+        - cross_sector
+      delivery_mechanism:
+        - market_commitment
+      targeting:
+        - technology_specific
+        - business_focused
+      timeline:
+        - long_term_innovation
