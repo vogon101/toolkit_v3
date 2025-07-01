@@ -134,19 +134,18 @@ const Map: React.FC = () => {
       lines[1] = lines[1].substring(0, 8) + '...';
     }
     
-    // Add the lines as tspan elements
-    lines.forEach((line, i) => {
-      const yOffset = (i - (lines.length - 1) / 2) * lineHeight;
-      textElement.append('tspan')
-        .attr('x', 0)
-        .attr('dy', i === 0 ? '0.35em' : `${lineHeight}em`)
-        .attr('text-anchor', 'middle')
-        .text(line);
-    });
+         // Add the lines as tspan elements
+     lines.forEach((line, i) => {
+       textElement.append('tspan')
+         .attr('x', 0)
+         .attr('dy', i === 0 ? '0.35em' : `${lineHeight}em`)
+         .attr('text-anchor', 'middle')
+         .text(line);
+     });
   };
 
   // Function to handle node clicks
-  const handleNodeClick = (event: any, d: Node) => {
+  const handleNodeClick = (_event: any, d: Node) => {
     if (d.type === 'tool') {
       // Find the tool to get its tag or id
       const tool = data.tools.find(t => t.id === d.id);
@@ -302,7 +301,7 @@ const Map: React.FC = () => {
         }));
 
     // Add circles to nodes
-    const circles = node.append('circle')
+    node.append('circle')
       .attr('r', (d) => Math.max(nodeBaseSize, Math.min(nodeMaxSize, nodeBaseSize + d.connections * (isMobile ? 3 : 10))))
       .attr('fill', (d) => d.type === 'tool' ? '#27ae60' : '#3498db')
       .attr('stroke', '#ffffff')
@@ -340,7 +339,7 @@ const Map: React.FC = () => {
       .style('z-index', '1000');
 
     node
-      .on('mouseover', (event, d) => {
+      .on('mouseover', (_event, d) => {
         tooltip.style('visibility', 'visible')
           .html(`<strong>${d.name}</strong><br/>Type: ${d.type}<br/>Connections: ${d.connections}`);
       })

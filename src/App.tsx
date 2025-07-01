@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Routes, Route, Link, useNavigate, useParams, useLocation } from 'react-router-dom'
 import { parse } from 'yaml'
-import type { Tool, TagsList, Objective, SelectedItem, ItemType } from './types/Tool'
+import type { Tool, TagsList, Objective } from './types/Tool'
 import { ToolDetail } from './components/ToolDetail'
 import { ObjectiveDetail } from './components/ObjectiveDetail'
 import Map from './components/Map'
@@ -9,7 +9,6 @@ import {
   AppContainer,
   ContentRow,
   StickyHeader,
-  HeaderLogo,
   HeaderTitle,
   HeaderNav,
   HeaderNavLink,
@@ -25,7 +24,6 @@ import {
   FilterChipContainer,
   FilterChip,
   RemoveChipButton,
-  ClearFiltersButton,
   PageTitle,
   Section,
   MarkdownText,
