@@ -1,5 +1,5 @@
 tools:
-  - name: "R&D Tax Reliefs"
+  - name: "R&D tax reliefs"
     tag: "r_d_tax_reliefs"
 
     # PURPOSE & APPLICATION
@@ -57,7 +57,7 @@ tools:
       targeting: ["broad_based", "firm_size", "business_focused"]
       timeline: ["immediate_cash_flow", "long_term_innovation", "fast_implementation"]
 
-  - name: "Innovation Inducement Prizes"
+  - name: "Innovation inducement prizes"
     tag: "innovation_inducement_prizes"
 
     # PURPOSE & APPLICATION
@@ -107,7 +107,7 @@ tools:
       targeting: ["technology_specific", "business_focused"]
       timeline: ["long_term_innovation"]
 
-  - name: "Advance Market Commitments"
+  - name: "Advance market commitments"
     tag: "advance_market_commitments"
 
     # PURPOSE & APPLICATION
@@ -158,7 +158,7 @@ tools:
       targeting: ["technology_specific"]
       timeline: ["long_term_innovation"]
 
-  - name: "Innovation Grants for Business"
+  - name: "Innovation grants for business"
     tag: "innovation_grants_for_business"
 
     # PURPOSE & APPLICATION
@@ -202,9 +202,124 @@ tools:
 
     # TAGS
     tags:
-      objectives: ["increase_business_rd_investment", "support_sme_innovation", "support_applied_rd_commercialization"]
+      objectives: ["increase_business_rd_investment", "support_sme_innovation", "support_applied_rd_commercialisation"]
       innovation_stage: ["early_stage", "applied_research", "development", "demonstration"]
       sectors: ["cross_sector"]
       delivery_mechanism: ["direct_grant", "collaborative_grant"]
       targeting: ["technology_specific", "regional", "business_focused"]
       timeline: ["short_term_outcomes", "long_term_innovation"]
+
+  - name: "Contracts for innovation"
+    tag: "contracts_for_innovation"
+
+    # PURPOSE & APPLICATION
+    purpose_and_application: 
+      why: "Help public sector organisations solve challenges by connecting them with innovative businesses to develop cutting-edge and cost-effective solutions. Addresses situations where the market is unlikely to provide solutions independently, particularly for government-specific needs and public sector challenges."
+      optimal_conditions: "Most effective at TRL 3-9 where technical solutions are feasible but market incentives are insufficient. Works particularly well when government can act as lead customer and where clear problem statements can be defined with measurable success criteria."
+
+    # HOW IT WORKS
+    how_it_works: "Public sector organisations run Contracts for Innovation competitions by posing specific problem statements, with companies competing for contracts to develop R&D solutions. The government acts as lead customer, with contracts typically structured in phases: feasibility studies, prototype/product development, and operational testing with public procurement of innovative solutions. This approach shifts from specifying solutions to defining problems that need solving."
+
+    # TARGETABILITY
+    targetability:
+      sectoral: "**High** – competitions can target specific government department needs or cross-cutting public sector challenges"
+      technological: "**High** – problem statements can define precise technical requirements and performance specifications"
+      regional: "**Low** – whilst devolved nations make use of the programme, recipients are not regionally targeted"
+      by_firm_type: "**Moderate** – accessible to businesses, academic and research organisations, charities and not-for-profits, though businesses constitute the majority of recipients"
+      overall_assessment: "**Problem-focused tool** – excellent for addressing specific government challenges but requires active departmental engagement."
+
+    # EFFECTIVENESS
+    effectiveness:
+      what_works: "Positive impact relatively well evidenced at firm level with high additionality rates. Government only pays for solutions that meet specified criteria, reducing risk of funding failures. Flexible model adaptable to wide range of departments and agencies. Strong leverage demonstrated in healthcare sector with £290m+ private investment from £99m+ public investment. Operating successfully since 2001 with over 100 public sector organisations participating, representing over £1 billion in total spend."
+      what_doesnt: "Key challenge is limited traction within many parts of the public sector due to well-recognised structural barriers. Requires extensive departmental administrative resources for success. Public sector benefits remain inadequately evaluated. Significant variation in how different departments interpret and deploy the programme."
+      additionality: "**High evidence** - 60% of beneficiaries report projects would not have happened without support, with additional 25% saying projects would have proceeded in reduced form. Gross additional turnover impact of £127k per firm per year."
+      timeline: "Several years for full spectrum of outcomes, depending on complexity of challenge and required TRL progression."
+
+    # RECOMMENDATIONS
+    recommendations:
+      - "Require strategic leadership and funding commitment from the centre to drive more extensive adoption across government departments."
+      - "Upgrade monitoring framework and data quality to better demonstrate public sector benefits and optimise programme design."
+      - "Maintain flexibility whilst sharing best practice across the programme 'family' to improve consistency and effectiveness."
+      - "Invest in raising awareness and building capabilities within procurement, policy, and innovation teams across government."
+      - "Make greater use of Phase 3 (operational testing and public procurement) to improve adoption of innovative solutions."
+
+    # IMPLEMENTATION
+    implementation:
+      lead_body: "Multiple departments and agencies, coordinated guidance available"
+      ease: "**High complexity** – requires extensive departmental administrative resource, specialist technical assessment, and ongoing project monitoring"
+      flexibility: "**High** – adaptable model that can be tailored to specific departmental needs and challenge areas"
+
+    # REFERENCE
+    further_reading:
+      - title: "An Evaluation of the Small Business Research Initiative, 2022"
+        source: "Steer Economics for UKRI"
+        url: "https://www.ukri.org/publications/an-evaluation-of-the-small-business-research-initiative-sbri-report/"
+
+    # TAGS
+    tags:
+      objectives: ["solve_government_challenges", "support_sme_innovation", "create_markets_for_innovation"]
+      innovation_stage: ["early_stage", "applied_research", "development", "demonstration", "deployment"]
+      sectors: ["cross_sector"]
+      delivery_mechanism: ["innovation_procurement"]
+      targeting: ["business_focused"]
+      timeline: ["short_term_outcomes", "long_term_innovation"]
+
+  - name: "Skilled immigration"
+    tag: "skilled_immigration"
+
+    # PURPOSE & APPLICATION
+    purpose_and_application: 
+      why: "Increase the supply of high-skilled talent in the UK to address skills shortages and enhance innovation capacity. Particularly valuable for accessing global talent pools and bringing in individuals with cutting-edge expertise that may be scarce domestically, whilst potentially catalysing additional private R&D investment through entrepreneurship."
+      optimal_conditions: "Most effective when skills are genuinely undersupplied domestically and when programmes prioritise merit-based selection over lottery systems. Works particularly well when combined with schemes that promote collaboration between migrants and existing residents."
+
+    # HOW IT WORKS
+    how_it_works: "Government enables high-skilled talent to migrate to the UK through targeted visa schemes. Key programmes include the Global Talent Visa (5-year duration for recognised leaders), High Potential Individual Visa (2-3 years for graduates from top universities), and Innovator Founder Visa (3 years for innovative business founders). Applications involve endorsement processes, qualification verification, and various fees including healthcare surcharges."
+
+    # TARGETABILITY
+    targetability:
+      sectoral: "**Moderate** – Global Talent Visa targets specific sectors including science, medicine, engineering, FinTech, gaming, cybersecurity and AI"
+      technological: "**Medium** – cannot precisely control technological focus but existing programmes already target specific high-innovation industries"
+      regional: "**Low** – difficult to direct innovation benefits to specific geographic regions"
+      by_firm_type: "**High** – benefits universities, large firms, and start-ups, with immigrants more likely to establish new businesses"
+      overall_assessment: "**Talent supply tool** – effective for addressing skills gaps but limited geographical targeting capability."
+
+    # EFFECTIVENESS
+    effectiveness:
+      what_works: "Revenue-generating policy that lacks fiscal costs whilst crowding in extensive private R&D investment. Fast impact timeline with innovation effects visible within one year. Evidence shows 1 percentage point rise in immigrant college graduates increases patents per capita by 6%. Between 2020-2023, granted 12,243 Global Talent visas, 1,342 High Potential Individual visas, and 520 Innovator Founder visas. Evaluation shows 30% of Global Talent visa holders conducting research by mid-2021."
+      what_doesnt: "Immigration reform traditionally slow to implement. Mixed evidence on effects on native innovation depending on programme design - lottery-style programmes risk crowding out domestic innovation. Some visa applicants report longer than expected application processing times. High upfront costs may deter applicants compared to competitor nations."
+      additionality: "**Mixed evidence** - Points-based systems likely to crowd in innovation, whilst lottery-based systems may crowd out domestic innovation. Effect depends heavily on specific programme design and implementation."
+      timeline: "Fast implementation once programmes established - innovation impacts visible within one year of migration."
+
+    # RECOMMENDATIONS
+    recommendations:
+      - "Prioritise merit-based selection over lottery systems to maximise innovation benefits."
+      - "Focus programmes on postgraduate degree holders and undersupplied skills areas."
+      - "Include potential start-up founders rather than restricting to job offer holders."
+      - "Benchmark visa costs against competitor nations to maintain competitiveness in attracting talent."
+      - "Change healthcare surcharge payment schedule to annual rather than upfront to reduce barriers."
+      - "Create voluntary opt-in connections between skilled migrants and existing research networks and start-up ecosystems."
+      - "Extend High Potential Individual Visa length for degrees in critical demand occupations."
+
+    # IMPLEMENTATION
+    implementation:
+      lead_body: "Home Office, with endorsing bodies including Royal Society, British Academy, Royal Academy of Engineering, UKRI, Tech Nation"
+      ease: "**Low complexity** for adjustments to existing programmes, **High complexity** for creating new programmes"
+      flexibility: "**Low** – immigration reform traditionally slow, though programmes could be designed with regular review mechanisms"
+
+    # REFERENCE
+    further_reading:
+      - title: "Global Talent Visa Evaluation Wave 2 Report"
+        source: "Home Office"
+        url: "https://www.gov.uk/government/publications/global-talent-visa-evaluation-wave-2-report/global-talent-visa-evaluation-wave-2-report"
+      - title: "Immigration Policy Levers for US Innovation and Startups"
+        source: "NBER Working Paper 27040"
+        url: "https://www.nber.org/system/files/working_papers/w27040/w27040.pdf"
+
+    # TAGS
+    tags:
+      objectives: ["increase_high_skilled_talent_supply", "support_sme_innovation", "support_early_stage_research", "strengthen_economic_security"]
+      innovation_stage: ["early_stage", "applied_research", "development", "demonstration", "deployment"]
+      sectors: ["cross_sector", "technology", "life_sciences", "fintech"]
+      delivery_mechanism: ["visa_scheme", "talent_attraction"]
+      targeting: ["skills_based", "merit_based", "business_focused"]
+      timeline: ["immediate_impact", "long_term_innovation"]
