@@ -5,6 +5,7 @@ import type { Tool, TagsList, Objective } from './types/Tool'
 import { ToolDetail } from './components/ToolDetail'
 import { ObjectiveDetail } from './components/ObjectiveDetail'
 import Map from './components/Map'
+import GuideView from './components/GuideView'
 import {
   AppContainer,
   ContentRow,
@@ -24,9 +25,6 @@ import {
   FilterChipContainer,
   FilterChip,
   RemoveChipButton,
-  PageTitle,
-  Section,
-  MarkdownText,
   SidebarSubheading,
   HamburgerButton,
   HamburgerLine,
@@ -214,39 +212,7 @@ const ObjectiveView: React.FC<{
   );
 };
 
-// Component for user guide
-const GuideView: React.FC = () => {
-  const [guideHtml, setGuideHtml] = useState<string>('');
-  const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const loadGuide = async () => {
-      try {
-        const guideResponse = await fetch('/guide.html');
-        const guideText = await guideResponse.text();
-        setGuideHtml(guideText);
-      } catch (error) {
-        console.error('Error loading guide HTML:', error);
-        setGuideHtml('<p>Error loading user guide. Please try again later.</p>');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadGuide();
-  }, []);
-
-  if (loading) {
-    return <div>Loading guide...</div>;
-  }
-
-  return (
-    <Section>
-      <PageTitle>How to use this toolkit</PageTitle>
-      <MarkdownText dangerouslySetInnerHTML={{ __html: guideHtml }} />
-    </Section>
-  );
-};
 
 // Component for default/home view
 const HomeView: React.FC = () => {
